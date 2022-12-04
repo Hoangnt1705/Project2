@@ -1,0 +1,722 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+:root {
+    --green: #27ae60;
+    --black: #444;
+    --light-color: #777;
+    --bg-color: #e6e6e6;
+    --border: .1rem solid rgba(0, 0, 0, .2);
+    --box-shadow: .4rem .4rem 1rem #ccc,
+        -.4rem -.4rem 1rem #fff;
+    --box-shadow-inset: .4rem .4rem 1rem #ccc inset,
+        -.4rem -.4rem 1rem #fff inset;
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-decoration: none !important;
+
+
+}
+
+html {
+
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    text-decoration: none;
+
+
+}
+
+body {
+    background: var(--bg-color);
+    transition: .2s linear;
+
+}
+
+body.active {
+    --black: #fff;
+    --light-color: #ddd;
+    --bg-color: #222;
+    --border: .1rem solid rgba(0, 0, 0, .4);
+    --box-shadow: .4rem .4rem 1rem #111,
+        -.4rem -.4rem 1rem #333;
+    --box-shadow-inset: .4rem .4rem 1rem #111 inset,
+        -.4rem -.4rem 1rem #333 inset;
+}
+
+section {
+    padding: 2rem;
+    margin-bottom: 10rem;
+    transition: .2s linear;
+}
+
+.titleHoSoCuaToi {
+    margin: 0;
+    font-size: 2.325rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+    text-transform: capitalize;
+    color: #333;
+}
+
+.titleHoSoCuaToiNeumorphism {
+    margin-top: 3rem;
+    display: inline-block;
+    padding: 1rem 3.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    background: none;
+    color: var(--black);
+    box-shadow: var(--box-shadow);
+    margin-right: 80rem;
+}
+
+.titleHoSoCuaToiMore {
+    font-size: 15px;
+    color: gray;
+    margin-right: 65rem;
+    padding-top: 15px;
+    border-bottom: 2pt solid rgb(223, 219, 219);
+}
+
+.titleInputChangeEmail {
+    font-size: 15px;
+    color: gray;
+    margin-right: 21rem;
+    padding-top: 15px;
+}
+
+/* đây là css cảnh bảo toast xác nhận */
+#taskLoginComfirm {
+    visibility: hidden;
+}
+
+#taskChangeEmail {
+    visibility: hidden;
+}
+
+#taskLoginComfirm.show {
+    visibility: visible;
+    /* Show the snackbar */
+    /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+However, delay the fade out process for 2.5 seconds */
+    -webkit-animation: fadein 0.8s;
+    animation: fadein 0.8s;
+}
+
+#taskChangeEmail.showChange {
+    visibility: visible;
+    /* Show the snackbar */
+    /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+However, delay the fade out process for 2.5 seconds */
+    -webkit-animation: fadein 0.8s;
+    animation: fadein 0.8s;
+}
+
+/* toast loading*/
+
+.case__loading {
+    position: absolute;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.big__circle {
+    background: #f2f2f2;
+    text-align: center;
+    position: relative;
+    margin: 0 auto;
+    width: 55px;
+    height: 55px;
+    border-radius: 100% !important;
+    box-shadow: inset -4px -4px 8px 0px white, inset 4px 4px 8px 0px #ddd8d4;
+}
+
+.inner__circle {
+    z-index: 2;
+    position: absolute;
+    top: calc(50% - 35%);
+    left: calc(50% - 35%);
+    width: 70%;
+    height: 70%;
+    border-radius: 100% !important;
+    background: #f2f2f2;
+    box-shadow: -4px -4px 8px 0px white, 4px 4px 8px 0px #cecece,
+        inset 0px 0px 0px 0px white, inset 0px 0px 0px 0px #cecece;
+}
+
+.loader {
+    z-index: 1;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 105%;
+    height: 105%;
+}
+
+.loader svg {
+    width: 100%;
+    height: 100%;
+}
+
+/*https://www.uplabs.com/posts/modern-google-loader-in-pure-css */
+.circular {
+    height: 100%;
+    width: 100%;
+    animation: rotate 4s linear infinite;
+    transform-origin: center center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: -2.5%;
+}
+
+.path {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+    stroke: #00e8aa;
+    animation: dash 3s ease-in-out infinite;
+}
+
+.starbuck-popup {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000000;
+}
+
+.starbuck-popup__overlay {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .4);
+}
+
+.starbuck-popup__container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    overflow: visible;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.error {
+    flex-direction: column;
+    width: 440px;
+    height: 200px;
+    font-size: 1rem;
+    padding: 30px;
+    background: #fff;
+    border-radius: 3px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 50%);
+}
+
+.success {
+    flex-direction: column;
+    width: 440px;
+    height: 350px;
+    font-size: 1rem;
+    padding: 30px;
+    background: #fff;
+    border-radius: 3px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 50%);
+}
+
+.info-popup__head {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.titlePopUp {
+    top: 10rem;
+    width: max-content;
+    font-size: 13px;
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);
+    padding: 1rem;
+}
+
+.fa-xmark,
+.fa-check {
+    color: green;
+    margin-right: 5px !important;
+}
+
+
+.textPopUpError {
+    padding-top: 15px;
+    font-size: 14px;
+    text-align: justify;
+}
+
+.popUpButton {
+    margin-top: -7rem;
+    position: absolute;
+    padding: 1rem 3.5rem;
+    border-radius: .5rem;
+    font-size: 1.7rem;
+    cursor: pointer;
+    color: #fff;
+    background: #006341;
+    box-shadow: var(--box-shadow);
+    margin-left: 8rem;
+
+}
+
+.popUpButton:hover {
+    transition: 0.05s;
+    background: #02966fa6;
+
+}
+
+.homeVerify {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-left: 5rem;
+}
+
+/* // */
+.btn {
+    margin-top: rem;
+    display: inline-block;
+    padding: 1rem 3.5rem;
+    border-radius: .5rem;
+    font-size: 1.7rem;
+    cursor: pointer;
+    background: none;
+    color: var(--black);
+    box-shadow: var(--box-shadow);
+    text-align: end;
+    margin-right: 2rem;
+
+}
+
+.inputChangeProfile {
+    display: inline-block;
+    padding: 1rem 1rem;
+    border-radius: .5rem;
+    font-size: 1.7rem;
+    background: none;
+    color: var(--black);
+    box-shadow: var(--box-shadow-inset);
+    width: 400px;
+
+}
+
+.textChangeProfile {
+    display: inline-block;
+    padding: 1rem 1rem;
+    border-radius: .5rem;
+    font-size: 1.7rem;
+    background: none;
+    color: var(--black);
+    box-shadow: var(--box-shadow);
+    width: 400px;
+    text-align: left;
+}
+
+.changeEmail {
+    color: gray;
+    text-decoration: underline;
+    margin-left: 10px;
+    font-size: 13px;
+}
+
+.changePassword {
+    color: gray;
+    text-decoration: underline;
+    margin-left: 10px;
+    font-size: 13px;
+}
+
+.btn:hover {
+    box-shadow: var(--box-shadow-inset);
+}
+
+.btnGender {
+    display: inline-block;
+    padding: 1rem 1rem;
+    border-radius: 50%;
+    font-size: 1.7rem;
+    cursor: pointer;
+    background: none;
+    color: var(--black);
+    box-shadow: var(--box-shadow);
+    margin-right: 2.1rem;
+    height: 3em;
+    width: 3.5em;
+
+}
+
+.btnGender:hover {
+    box-shadow: var(--box-shadow-inset);
+    color: var(--green);
+}
+
+.heading {
+    text-align: center;
+    font-size: 5rem;
+    color: var(--black);
+    text-transform: uppercase;
+    padding-bottom: 2rem;
+}
+
+.heading span {
+    color: var(--green);
+    text-transform: uppercase;
+}
+
+.header {
+    top: 10.8%;
+    left: 0;
+    background: var(--bg-color);
+    width: 30rem;
+    height: 100%;
+    padding: 2rem;
+    margin-top: -25px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 20px 20px 60px #bebebe,
+        -20px -20px 60px #ffffff;
+}
+
+.header .user img {
+    margin: 1rem 0;
+    border: 1rem solid transparent;
+    border-radius: 50%;
+    height: 18rem;
+    width: 18rem;
+    box-shadow: var(--box-shadow);
+}
+
+.header .user h3 {
+    color: var(--black);
+    font-size: 2.5rem;
+}
+
+.header .user p {
+    color: gray;
+    font-size: 1.5rem;
+}
+
+.header .navbar {
+    padding-top: 1rem;
+    text-align: justify;
+}
+
+.header .navbar .btnNavBarInfoProfile {
+    padding-left: 20px;
+}
+
+.header .navbar a {
+    display: block;
+    margin: 1.5rem 0;
+    padding: .7rem;
+    border-radius: 5rem;
+    font-size: 2rem;
+    box-shadow: var(--box-shadow);
+    color: var(--black);
+}
+
+.header .navbar a:hover {
+    box-shadow: var(--box-shadow-inset);
+    color: var(--green);
+    transition: .2s linear;
+
+}
+
+.aaaaa {
+    box-shadow: var(--box-shadow-inset) !important;
+    color: var(--green) !important;
+}
+
+#menu-btn {
+    position: fixed;
+    top: 1.5rem;
+    left: 2rem;
+    height: 5rem;
+    width: 5rem;
+    line-height: 5rem;
+    border-radius: 50%;
+    font-size: 2rem;
+    cursor: pointer;
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    color: var(--black);
+    background: var(--bg-color);
+    display: none;
+}
+
+#menu-btn:hover {
+    color: var(--green);
+    box-shadow: var(--box-shadow-inset);
+}
+
+#theme-toggler {
+    position: fixed;
+    top: 13.5rem;
+    right: 2rem;
+    height: 5rem;
+    width: 5rem;
+    line-height: 5rem;
+    border-radius: 50%;
+    font-size: 2rem;
+    cursor: pointer;
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    color: var(--black);
+    background: var(--bg-color);
+}
+
+#theme-toggler:hover {
+    color: var(--green);
+    box-shadow: var(--box-shadow-inset);
+}
+
+.content {
+    margin-right: 25rem;
+    margin-top: 10px;
+
+
+}
+
+.home {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-left: 5rem;
+}
+
+.home .content h3 {
+    font-size: 7rem;
+    color: var(--black);
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+.home .content p {
+    font-size: 2rem;
+    color: var(--green);
+    padding-bottom: .5rem;
+}
+
+.home .share {
+    /* position: relative; */
+    top: 10rem;
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);
+    padding: 1rem;
+    margin-left: 40rem;
+    margin-top: 30px;
+}
+
+.home .share a {
+    height: 5rem;
+    width: 40rem;
+    line-height: 5rem;
+    box-shadow: var(--box-shadow);
+    margin: .5rem;
+    font-size: 2rem;
+    color: var(--black);
+    border-radius: .5rem;
+
+}
+
+.home .share a:hover {
+    box-shadow: var(--box-shadow-inset);
+    color: var(--green);
+    transition: .2s linear;
+
+}
+
+.buttonVerify {
+    pointer-events: none;
+    cursor: not-allowed;
+    opacity: 0.3;
+}
+
+.inputChangeEmail {
+    margin-top: 10px;
+    position: absolute;
+}
+
+.inputChangePassword {
+    margin-top: 10px;
+    position: absolute;
+}
+
+#textValueChangePassword {
+    color: #f00;
+    font-style: italic;
+}
+
+#textValueChangeComfirmPassword {
+    color: #f00;
+    font-style: italic;
+}
+
+#errorInputChangeEmail {
+    padding: 10px 10px 10px 10px;
+    margin-right: 58rem;
+    color: #f00;
+}
+#errorInputChangePassword {
+    padding: 10px 10px 180px 10px;
+    margin-right: 58rem;
+    color: #f00;
+    position: absolute;
+}
+#errorInputComfirmChangePassword {
+    padding: 20px 10px 10px 10px;
+    margin-right: 49rem;
+    color: #f00;
+    position: absolute;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* media queries  */
+
+@media (max-width:991px) {
+
+    html {
+        font-size: 55%;
+    }
+
+    body {
+        padding-left: 0;
+    }
+
+    .header {
+        left: -110%;
+    }
+
+    .header.active {
+        left: 0%;
+        transition: .4s linear;
+    }
+
+    #menu-btn {
+        display: initial;
+    }
+
+}
+
+@media (max-width:450px) {
+
+    html {
+        font-size: 50%;
+    }
+
+    .header {
+        width: 100%;
+        border-right: 0;
+    }
+
+}
+
+/* Animations to fade the toast in and out */
+@-webkit-keyframes fadein {
+    from {
+        bottom: 30px;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadein {
+    from {
+        bottom: 30px;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+/*
+@-webkit-keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+
+    to {
+        bottom: 30px;
+        opacity: 0;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+
+    to {
+        bottom: 30px;
+        opacity: 0;
+    }
+}
+  */
+
+/* animation toast loading*/
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes dash {
+    0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+    }
+
+    50% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -35px;
+    }
+
+    100% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -124px;
+    }
+}

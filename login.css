@@ -1,0 +1,79 @@
+body,html{
+    font-family: Helvetica Neue,Helvetica,Arial,文泉驛正黑,WenQuanYi Zen Hei,Hiragino Sans GB,儷黑 Pro,LiHei Pro,Heiti TC,微軟正黑體,Microsoft JhengHei UI,Microsoft JhengHei,sans-serif;
+}
+.divider:after,
+.divider:before {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #eee;
+}
+
+.text-body,
+.link-danger {
+    text-decoration: none;
+}
+
+.h-custom {
+    height: calc(100% - 73px);
+}
+
+.btn {
+    background-color: #26734d;
+    border: none;
+}
+.align-items-center{
+    padding-top: 25px;
+    margin-bottom: 64px;
+}
+.form-check-input:checked {
+    background-color: #26734d;
+    border-color: #26734d;
+}
+
+._0L93MD, ._3M9lzn, .axexMF, .D3jUo5 {
+    align-items: center;
+    display: flex;
+}
+.axexMF {
+    height: 84px;
+    box-shadow: 0 6px 6px rgb(0 0 0 / 6%);
+}
+.btn-primary {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #26734d;
+    --bs-btn-border-color: #26734d;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: green;
+    --bs-btn-hover-border-color: green;
+    --bs-btn-focus-shadow-rgb: 49,132,253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: green;
+    --bs-btn-active-border-color: #26734d;
+    --bs-btn-active-shadow: inset 0 3px 5pxrgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #0d6efd;
+    --bs-btn-disabled-border-color: #0d6efd;
+}
+
+.u9tve2 {
+    color: #222;
+    font-size: 1.6rem;
+    font-weight: calc(400);
+    margin-left: -1045px;
+    margin-bottom: 25px;
+    font-size: 25px;
+}
+.ZKvYoG {
+    color: #ee4d2d;
+    font-size: .875rem;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+
+@media (max-width: 450px) {
+    .h-custom {
+        height: 100%;
+    }
+}
