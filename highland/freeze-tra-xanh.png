@@ -136,7 +136,7 @@ document.write('<scr'+'ipt src="HTTPS://bs.serving-sys.com/Serving/ActivityServe
                             
 <form id="formSearch" name="formSearch" method="post" action="https://www.highlandscoffee.com.vn/vn/tim-kiem.html" onSubmit="return check_search(this);" class="box_search">
 	<input name="keyword" id="keyword" type="text" class="text_search" placeholder="Từ khóa" value=""  />
-	<button name="btn-search" type="submit" value="" ><img src="https://www.highlandscoffee.com.vn/skins/default/images/i-search.svg" alt="search" /></button>
+	<button name="btnNeumorphism-search" type="submit" value="" ><img src="https://www.highlandscoffee.com.vn/skins/default/images/i-search.svg" alt="search" /></button>
 	<input name="do_search" value="1" type="hidden" />
 </form>
 
@@ -322,10 +322,10 @@ document.write('<scr'+'ipt src="HTTPS://bs.serving-sys.com/Serving/ActivityServe
                 <div class="vnt-button hidden-lg hidden-md">
                     <div class="button-wrap">
                         <div class="buttons">
-                            <a href="tel:(028) 2.448.907" class="btn-mm"><span class="fa-phone">Call now</span></a>
+                            <a href="tel:(028) 2.448.907" class="btnNeumorphism-mm"><span class="fa-phone">Call now</span></a>
                         </div>
                         <div class="buttons">
-                            <a href="https://www.highlandscoffee.com.vn/vn/he-thong-cua-hang.html" class="btn-mm"><span class="fa-map-marker">VIEW MAP</span></a>
+                            <a href="https://www.highlandscoffee.com.vn/vn/he-thong-cua-hang.html" class="btnNeumorphism-mm"><span class="fa-map-marker">VIEW MAP</span></a>
                         </div>
                     </div>
                 </div>
@@ -381,7 +381,7 @@ document.write('<scr'+'ipt src="HTTPS://bs.serving-sys.com/Serving/ActivityServe
                 
 <form id="formSearch" name="formSearch" method="post" action="https://www.highlandscoffee.com.vn/vn/tim-kiem.html" onSubmit="return check_search(this);" class="box_search">
 	<input name="keyword" id="keyword" type="text" class="text_search" placeholder="Từ khóa" value=""  />
-	<button name="btn-search" type="submit" value="" ><img src="https://www.highlandscoffee.com.vn/skins/default/images/i-search.svg" alt="search" /></button>
+	<button name="btnNeumorphism-search" type="submit" value="" ><img src="https://www.highlandscoffee.com.vn/skins/default/images/i-search.svg" alt="search" /></button>
 	<input name="do_search" value="1" type="hidden" />
 </form>
                  

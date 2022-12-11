@@ -122,7 +122,7 @@ controller.login = (data) => {
 // đây là phần valid sau khi model lấy người dùng sau khi đăng nhập
 
 controller.getInfoProfile = (data) => {
-    if (data !== null) {
+    if (data !== null && data.emailVerified) {
         model.getInfoProfile(data);
     };
 };
@@ -132,18 +132,20 @@ controller.getInfoProfileVerify = (data) => {
     };
 };
 // đây là phần valid đăng xuất
-controller.logOut = async () => {
+controller.logOut = () => {
     try {
-        if (confirm("Bạn có muốn thoát không ?") == true) {
+        view.toastLoading("toastLoading", "visible")
+        setTimeout(async () => {
+            view.toastLoading("toastLoading", "hidden")
             return await firebase.auth().signOut();
-        }
-        else {
-        };
+        }, 2000);
+
     } catch (error) {
         alert(error.message);
     };
 
 };
+
 controller.addCart = async (data) => {
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/firebase.User
@@ -177,7 +179,7 @@ controller.addCart = async (data) => {
             //    console.log(inputValue);
             let productPrice = cartItem[i].querySelector(".prices").innerText;
             //    console.log(productPrice);
-            let totalItem = inputValue * productPrice * 1000;
+            let totalItem = inputValue * productPrice; //* 1000
             //    let totalB = totalA.toLocaleString('de-DE')
             //    console.log(totalB);
             totalItems = totalItems + totalItem;
@@ -210,8 +212,8 @@ controller.addCart = async (data) => {
             });
         };
     };
-    const btn = document.querySelectorAll(".btnAddCart");
-    btn.forEach((button, index) => {
+    const btnNeumorphism = document.querySelectorAll(".btnAddCart");
+    btnNeumorphism.forEach((button, index) => {
         button.addEventListener("click", async (event) => {
             var btnItem = event.target;
             var product = btnItem.parentElement;
@@ -234,9 +236,15 @@ controller.addCart = async (data) => {
     });
 };
 // đây là phần control xử lý model phần xác thực bảo mật đổi thông tin
-controller.infoProfileVerifyEmail = (data, credentials) => {
-    view.toastLoading("toastLoading")
-    model.infoProfileVerifyEmail(data, credentials); // thằng này sẽ chuyển dữ liệu từ view gửi sang cho model
+controller.infoProfileVerifyEmail = async (data, credentials) => {
+    if (firebase.auth().currentUser && firebase.auth().currentUser.emailVerified) {
+        model.infoProfileVerifyEmail(data, credentials); // thằng này sẽ chuyển dữ liệu từ view gửi sang cho model
+    }
+    else {
+        alert("thất bại, vui lòng kiểm tra hộp thư.")
+        view.toastLoading("toastLoading", "hidden")
+    }
+
 };
 controller.infoProfileVerifyPassword = (data, credentials) => {
     view.toastLoading("toastLoading")
@@ -258,7 +266,7 @@ controller.checkValidChangeEmail = (data, checkInputChangeEmail) => {
 controller.checkValidChangePassword = (data, dataInput) => {
     let errorInputChangePassword = document.getElementById("errorInputChangePassword")
     let errorInputComfirmChangePassword = document.getElementById("errorInputComfirmChangePassword");
-    if(_.isEmpty(dataInput.checkInputChangePassword.value)) {
+    if (_.isEmpty(dataInput.checkInputChangePassword.value)) {
         errorInputChangePassword.innerText = "Mật khẩu không được để trống";
     }
     else if (dataInput.checkInputChangePassword.value.length < 7) {
@@ -267,17 +275,17 @@ controller.checkValidChangePassword = (data, dataInput) => {
     else {
         errorInputChangePassword.innerText = "";
     };
-    if(_.isEmpty(dataInput.checkInputComfirmChangePassword.value)){
+    if (_.isEmpty(dataInput.checkInputComfirmChangePassword.value)) {
         errorInputComfirmChangePassword.innerText = "Xác thực mật khẩu không được để trống";
     }
-    else if (dataInput.checkInputComfirmChangePassword.value !== dataInput.checkInputChangePassword.value){
+    else if (dataInput.checkInputComfirmChangePassword.value !== dataInput.checkInputChangePassword.value) {
         errorInputComfirmChangePassword.innerText = "Xác thực không khớp với mật khẩu đã nhập";
     }
-    else{
+    else {
         errorInputComfirmChangePassword.innerText = "";
     }
-    if(dataInput.checkInputComfirmChangePassword.value && dataInput.checkInputChangePassword.value){
-         model.getChangePassword(data, dataInput);
+    if (dataInput.checkInputComfirmChangePassword.value && dataInput.checkInputChangePassword.value) {
+        model.getChangePassword(data, dataInput);
 
     }
 }
@@ -337,6 +345,71 @@ controller.keyEnterPasswordChangePassword = (event) => {
         document.getElementById("buttonChangePassword").click();
     };
 };
+controller.saveChangeImage = () => {
+    model.saveChangeImage();
+}
 
+controller.settingDelete = (inputDelete, asWithCurrenUser) => {
+    if (inputDelete === asWithCurrenUser) {
+        document.getElementById('buttonDelete').disabled = false;
+    }
+    else {
+        document.getElementById('buttonDelete').disabled = true;
+    };
+};
+
+controller.submitDelete = (data) => {
+    model.submitDelete(data);
+}
+
+controller.displayItems = (data) => {
+    model.displayItems(data);
+}
+
+document.addEventListener("click", (evt) => {
+    const getSuggest = document.getElementById("inputSearch");
+    const createSuggestion = document.getElementById("createSuggestion")
+    let targetEl = evt.target; // clicked element      
+    do {
+        if (targetEl == getSuggest) {
+            // This is a click inside, does nothing, just return.
+            createSuggestion.style.display = "block";
+            return;
+        }
+        // Go up the DOM
+        targetEl = targetEl.parentNode;
+    } while (targetEl);
+    // This is a click outside. 
+    if (createSuggestion == "" || createSuggestion == null) {
+        console.log("nothing");
+    } else {
+        document.getElementById("createSuggestion").style.display = "none";
+    }
+});
+//thằng parentTagA sẽ tạo 1 thẻ div và sẽ không bị tác động(gọi theo) function viewSuggestion khi chạy oninput
+//và nó sẽ là thẻ div tĩnh chứa các thông tin thay đổi khi xử lý các hàm được chứa bởi nó.
+// let parentTagA = document.createElement("div");
+// // đây value sẽ chạy theo keyup của ô input
+// let viewSuggestion = () => {
+//     let inputSearch = document.getElementById("inputSearch").value;
+//     let displayValueSuggest = document.getElementById("displayValueSuggest");
+//     displayValueSuggest.innerText = inputSearch;
+//     var API = `http://localhost:8080/api/search?name=${inputSearch}`;
+//     var pageimage = [];
+//     //đây là function fetch API
+//     async function funcSearch(url) {
+//         // *{ thằng này là kết quả của API DATA
+//         const response = await fetch(url);
+//         let data = await response.json();
+//         //}*
+//         renderSearch = ``;
+//         for (const index in data) {
+//             console.log(index);
+//         };
+//     };
+//     funcSearch(API)
+
+// }
+// viewSuggestion();
 
 

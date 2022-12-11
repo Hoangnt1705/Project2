@@ -1,36 +1,56 @@
 const model = {};
 const firebaseApp = firebase.initializeApp({ /* Firebase config */
-    apiKey: "AIzaSyBjFG6vuZsGQlJeVC4sYEfrbVlaoilnJus",
-    authDomain: "project---module-2.firebaseapp.com",
-    projectId: "project---module-2",
-    storageBucket: "project---module-2.appspot.com",
-    messagingSenderId: "764674509336",
-    appId: "1:764674509336:web:4c2fb319a966515ef7116d"
+    apiKey: "AIzaSyD4YfE1zlxCwSHY1o_Prn-4EgQNXQLB2pQ",
+    authDomain: "project2thi.firebaseapp.com",
+    projectId: "project2thi",
+    storageBucket: "project2thi.appspot.com",
+    messagingSenderId: "505954566029",
+    appId: "1:505954566029:web:e03843e61fada08c8e47c4"
 });
 const db = firebaseApp.firestore();
 const auth = firebaseApp.auth();
-model.register = async (data) => {
+const ref = firebase.storage().ref();
+const store = firebase.storage();
+model.register = (data) => {
     try {
-        let dataUser = '';
-        let response = await auth.createUserWithEmailAndPassword(data.email, data.password);
-        view.setScreenActive("login");
-        auth.currentUser.sendEmailVerification();
+        view.toastLoading("toastLoading", "visible");
+        setTimeout(async () => {
+            view.toastLoading("toastLoading", "hidden");
+            let dataUser = '';
+            let response = await auth.createUserWithEmailAndPassword(data.email, data.password);
+            view.setScreenActive("login");
+            auth.currentUser.sendEmailVerification();
+            showRegisterSuccess("Đăng ký tài khoản thành công, vui lòng kiểm tra hộp thư để xác nhận tài khoản.")
+            return setTimeout(async () => {
+                await view.setScreenActive("login");
+            }, 2000);
+        }, 1000);
     } catch (error) {
-        alert(error.message);
+        view.toastLoading("toastLoading", "hidden");
+        showRegisterFail("Đăng ký thất bại.")
     }
 }
 model.login = async (data) => {
     try {
+        view.toastLoading("toastLoading", "visible")
         let response = await auth.signInWithEmailAndPassword(data.email, data.password)
         if (response.user.emailVerified) {
-            view.setScreenActive("cart");
+            setTimeout(() => {
+                view.toastLoading("toastLoading", "hidden")
+                view.setScreenActive("cart");
+            }, 2000);
         }
         else {
-            showVeriEmail();
-            auth.currentUser.sendEmailVerification();
+            view.toastLoading("toastLoading", "visible")
+            setTimeout(() => {
+                view.toastLoading("toastLoading", "hidden")
+                showVeriEmail();
+                auth.currentUser.sendEmailVerification();
+            }, 2000);
         }
     } catch (error) {
-        alert(error.message);
+        view.toastLoading("toastLoading", "hidden");
+        showLoginFail("Sai tài khoản hoặc mật khẩu.");
     }
 }
 // đây là phần lấy dữ liệu người dùng sau khi đăng nhập từ firebase
@@ -43,7 +63,7 @@ model.getInfoProfile = async (data) => {
         view.documentStyleDisplay("loginForCart", "none");
         view.subMenuLogin("subMenuLogin");
     } catch (error) {
-        console.log(error.message);
+        showLoginFail(error.message)
     }
 }
 model.getInfoProfileVerify = async (data) => {
@@ -72,14 +92,13 @@ model.infoProfileVerifyEmail = async (data, credentials) => { // thằng này s�
                     }, 2000);
                 }, 2000);
             }, 10);
-
         })
         .catch(() => {
             return setTimeout(() => {
                 view.toastLoading("toastLoading", "visible")
                 return setTimeout(() => {
                     view.toastLoading("toastLoading", "hidden");
-                    view.toastComfirm("taskLoginComfirm", "show", "titlePopUpVerify", `<i class="fa-solid fa-xmark"></i>Xác thực thất bại`, "textPopUpError", "Sai tài khoản hoặc mật khẩu.", "header", "0");
+                    view.toastComfirm("taskComfirmFunc", "show", "titlePopUpVerify", `<i class="fa-solid fa-xmark"></i>Xác thực thất bại`, "textPopUpError", "Sai tài khoản hoặc mật khẩu.", "header", "0");
                 }, 2000);
             }, 10);
         });
@@ -103,7 +122,7 @@ model.infoProfileVerifyPassword = async (data, credentials) => { // thằng này
                 view.toastLoading("toastLoading", "visible")
                 return setTimeout(() => {
                     view.toastLoading("toastLoading", "hidden");
-                    view.toastComfirm("taskLoginComfirm", "show", "titlePopUpVerify", `<i class="fa-solid fa-xmark"></i>Xác thực thất bại`, "textPopUpError", "Sai tài khoản hoặc mật khẩu.", "header", "0");
+                    view.toastComfirm("taskComfirmFunc", "show", "titlePopUpVerify", `<i class="fa-solid fa-xmark"></i>Xác thực thất bại`, "textPopUpError", "Sai tài khoản hoặc mật khẩu.", "header", "0");
                 }, 2000);
             }, 10);
         });
@@ -116,13 +135,13 @@ model.getChangeEmail = (data, checkInputChangeEmail) => {
                 await data.updateEmail(checkInputChangeEmail);
                 await data.sendEmailVerification();
                 view.toastLoading("toastLoading", "hidden");
-                view.toastComfirm("taskLoginComfirm", "show", "titlePopUpVerify", `<i class="fa-solid fa-check"></i>Đổi email thành công !`, "textPopUpError", "Bạn đã đổi email thành công, vui lòng đến hộp thư của bạn để xác nhận.", "header", "0");
+                view.toastComfirm("taskComfirmFunc", "show", "titlePopUpVerify", `<i class="fa-solid fa-check"></i>Đổi email thành công !`, "textPopUpError", "Bạn đã đổi email thành công, vui lòng đến hộp thư của bạn để xác nhận.", "header", "0");
             } catch (error) {
-                view.toastComfirm("taskLoginComfirm", "show", "titlePopUpVerify", `<i class="fa-solid fa-xmark"></i>Đổi email thất bại, vui lòng thao tác lại`, "textPopUpError", `${error.message}`, "header", "0");
+                view.toastComfirm("taskComfirmFunc", "show", "titlePopUpVerify", `<i class="fa-solid fa-xmark"></i>Đổi email thất bại, vui lòng thao tác lại`, "textPopUpError", `${error.message}`, "header", "0");
             }
         }, 2000);
     }, 0);
-}
+};
 model.getChangePassword = (data, dataInput) => {
     setTimeout(() => {
         view.toastLoading("toastLoading", "visible")
@@ -130,13 +149,70 @@ model.getChangePassword = (data, dataInput) => {
             try {
                 await data.updatePassword(dataInput.checkInputComfirmChangePassword.value);
                 view.toastLoading("toastLoading", "hidden");
-                view.toastComfirm("taskLoginComfirm", "show", "titlePopUpVerify", `<i class="fa-solid fa-check"></i>Đổi mật khẩu thành công !`, "textPopUpError", "Bạn đã đổi mật khẩu thành công, bấm OK bạn sẽ quay về trang chủ của mình.", "header", "0");
+                view.toastComfirm("taskComfirmFunc", "show", "titlePopUpVerify", `<i class="fa-solid fa-check"></i>Đổi mật khẩu thành công !`, "textPopUpError", "Bạn đã đổi mật khẩu thành công, bấm OK bạn sẽ quay về trang chủ của mình.", "header", "0");
             } catch (error) {
-                view.toastComfirm("taskLoginComfirm", "show", "titlePopUpVerify", `<i class="fa-solid fa-xmark"></i>Đổi mật khẩu thất bại, vui lòng thao tác lại`, "textPopUpError", `${error.message}`, "header", "0");
+                view.toastComfirm("taskComfirmFunc", "show", "titlePopUpVerify", `<i class="fa-solid fa-xmark"></i>Đổi mật khẩu thất bại, vui lòng thao tác lại`, "textPopUpError", `${error.message}`, "header", "0");
             }
         }, 2000);
     }, 0);
+};
+// send image lên firebase 
+model.saveChangeImage = () => {
+    setTimeout(async () => {
+        view.toastLoading("toastLoading", "visible");
+        const file = document.querySelector("#imageUploadInput").files[0]
+        console.log(file.name);
+        const name = `${auth.currentUser.uid}/${file.name}`;
+        const metadata = {
+            contentType: file.type
+        };
+        const task = ref.child(name).put(file, metadata)
+        await task
+            .then(snapshot => snapshot.ref.getDownloadURL())
+            .then(url => {
+                console.log(url);
+                view.divToastAfterClickChangeImage();
+                view.toastLoading("toastLoading", "hidden");
+                auth.currentUser.updateProfile({ photoURL: url });
+                return setTimeout(() => {
+                    window.location.reload()
+                }, 2000);
+            });
+    }, 50);
 }
+// trỏ vào firebase ra lệnh xóa tài khoản
+model.submitDelete = (data) => {
+    let toastAfterClickChangeImage = document.getElementById("toastAfterClickChangeImage");
+    setTimeout(async () => {
+        try {
+            await data.delete()
+            toastAfterClickChangeImage.textContent = "Xóa tài khoản thành công !"
+        } catch (error) {
+            toastAfterClickChangeImage.textContent = error.message
+        }
+    }, 4000);
+};
+model.displayItems = async (item) => {
+    var productItems = document.getElementById("productItems")
+    var productItem = ``;
+    // *{ thằng này là kết quả của API DATA
+    const response = await fetch(item);
+    let data = await response.json();
+    for (let i = 0; i < data.length; i++) {
+        productItem += await
+            `<div class="product-item">
+                    <img src="${data[i].image}" alt="">
+                    <div class="product-item-text">
+                        <p><span>${data[i].price}</span><sup>đ</sup></p>
+                        <h1 id="id" style="font-weight: bold; font-size: 18px;"> ${data[i].name}</h1>
+                    </div>
+                    <button class="btnAddCart">Thêm vào giỏ hàng</button>
+                </div>\n`;
+    }
+    productItems.innerHTML = await productItem;
+    const checkAdd = await firebase.auth().currentUser;
+    controller.addCart(checkAdd);
+};
 // model.updateEmailSuccess = async (data, inputValueChangeEmail) => {
 //     try {
 //        await data.updateEmail(inputValueChangeEmail.value);

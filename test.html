@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./test.scss">
+    <title>Document</title>
+</head>
+<style>
+
+
+</style>
+
+<body>
+    <div id="wrapSetting" class="">
+        <div data-view-component="true" class="Subhead">
+            <h2 data-view-component="true" class="Subhead-heading">General</h2>
+        </div>
+        <div class="Box">
+            <form class="js-repo-features-form" data-autosubmit="true" data-turbo="false"
+                action="/Hoangnt1705/aaaa/settings/update" accept-charset="UTF-8" method="post"><input type="hidden"
+                    name="_method" value="put" autocomplete="off"><input type="hidden" name="authenticity_token"
+                    value="JaVwCDDFfrrTm0EQr1bYSNuLGiSM1b2IMEFpdG-g814qf6TdbJSY1zmHGm07k0O9B9GOCKEyTeBmokxr_VZ-fA">
+                <div class="Box-row py-0">
+                    <div role="group" aria-label="Wikis"
+                        class="form-checkbox js-repo-option js-toggler-container wikis-options on">
+                        <input type="hidden" name="has_wiki" value="0">
+                        <input type="checkbox" name="has_wiki" value="1" class="js-toggler-target"
+                            aria-describedby="wiki-feature-desc" id="wiki-feature" checked="">
+                        <label for="wiki-feature">Wikis</label>
+                        <span class="status-indicator ml-1 js-status-indicator">
+                        </span>
+                        <p id="wiki-feature-desc" class="note">
+                            Wikis host documentation for your repository.
+                        </p>
+
+                        <div class="form-checkbox js-repo-option wikis-restrict-editing">
+                            <input type="hidden" name="wiki_access_to_pushers" value="0">
+                            <input type="checkbox" name="wiki_access_to_pushers" value="1"
+                                aria-describedby="wiki-pusher-access-desc" id="wiki-pusher-access" checked="">
+                            <label for="wiki-pusher-access">Restrict editing to collaborators only</label>
+                            <span class="status-indicator ml-1 js-status-indicator">
+                                <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16"
+                                    data-view-component="true" class="octicon octicon-check">
+                                    <path fill-rule="evenodd"
+                                        d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z">
+                                    </path>
+                                </svg>
+                                <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16"
+                                    data-view-component="true" class="octicon octicon-x">
+                                    <path fill-rule="evenodd"
+                                        d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z">
+                                    </path>
+                                </svg>
+                            </span>
+                            <p id="wiki-pusher-access-desc" class="note">Public wikis will still be readable by
+                                everyone.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="Box-row py-0">
+                    <div class="form-checkbox js-repo-option">
+                        <input type="hidden" name="has_issues" value="0">
+                        <input type="checkbox" name="has_issues" value="1" aria-describedby="issues-desc"
+                            id="issue-feature" checked="">
+                        <label for="issue-feature">Issues</label>
+                        <span class="status-indicator ml-1 js-status-indicator">
+                        </span>
+                        <p id="issues-desc" class="note">
+                            Issues integrate lightweight task tracking into your repository.
+                            Keep projects on track with issue labels and milestones, and reference them in commit
+                            messages.
+                        </p>
+
+                        <div data-view-component="true" class="flash my-3">
+
+
+                            <div class="d-flex flex-md-row flex-column flex-md-items-center flex-items-start">
+                                <div class="mb-md-0 mb-3">
+                                    <h3 class="h5 mb-2">Get organized with issue templates</h3>
+                                    <p class="pr-6 mb-0">Give contributors issue templates that help you cut through the
+                                        noise and help them push your project forward.</p>
+                                </div>
+                                <div>
+                                    <a href="/Hoangnt1705/aaaa/issues/templates/edit"
+                                        class="btnSetting btnNeumorphism-primary">
+                                        Set up templates
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Box-row py-0">
+                    <div class="form-checkbox js-repo-option">
+                        <input type="hidden" name="enable_repository_funding_links" value="0">
+                        <input type="checkbox" name="enable_repository_funding_links"
+                            aria-describedby="repository-funding-links-feature-desc"
+                            id="repository-funding-links-feature" value="1">
+                        <label for="repository-funding-links-feature">Sponsorships</label>
+                        &nbsp;
+                        <span class="status-indicator v-align-top ml-1 js-status-indicator">
+                        </span>
+                        <p id="repository-funding-links-feature-desc" class="note">
+                            Sponsorships help your community know how to financially support this repository.
+                        </p>
+                        <div data-view-component="true" class="flash my-3">
+
+
+                            <div class="d-flex flex-md-row flex-column flex-md-items-center flex-items-start">
+                                <div class="mb-md-0 mb-3">
+                                    <h3 class="h5 mb-2">
+                                        Display a "Sponsor" button
+                                    </h3>
+                                    <p class="pr-6 mb-0">
+                                        Add links to GitHub Sponsors or third-party methods your repository accepts for
+                                        financial contributions to your project.
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <a class="btnSetting btnNeumorphism-primary"
+                                        data-hydro-click="{&quot;event_type&quot;:&quot;sponsors.repo_funding_links_button_click&quot;,&quot;payload&quot;:{&quot;platforms&quot;:[],&quot;repo_id&quot;:569203330,&quot;owner_id&quot;:109784166,&quot;user_id&quot;:109784166,&quot;is_mobile&quot;:false,&quot;originating_url&quot;:&quot;https://github.com/Hoangnt1705/aaaa/settings&quot;}}"
+                                        data-hydro-click-hmac="c09a24fcebbc88b280e76d879851612928fd6c5613eef27ebf3ff99c6bfe0fec"
+                                        href="/Hoangnt1705/aaaa/new/main?repository_funding=1">Set up sponsor button</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="Box-row py-0">
+                    <div class="form-checkbox js-repo-option">
+                        <input type="hidden" name="archive_program_opt_out_enabled" value="1">
+                        <input type="checkbox" name="archive_program_opt_out_enabled" value="0"
+                            aria-describedby="archive-program-opt-out-feature-desc" id="archive-program-opt-out-feature"
+                            checked="">
+                        <label for="archive-program-opt-out-feature">
+                            Preserve this repository
+                        </label>
+                        <span class="status-indicator ml-1 js-status-indicator">
+                        </span>
+                        <p id="archive-program-opt-out-feature-desc" class="note color-fg-muted">
+                            Include this code in the <a href="https://archiveprogram.github.com/faq/">GitHub Archive
+                                Program</a>.
+                        </p>
+                    </div>
+                </div>
+
+                <noscript>
+                    <button type="submit" data-view-component="true" class="btnNeumorphism-primary btnNeumorphism"> Save
+                        changes
+                    </button>
+                </noscript>
+            </form>
+            <form class="border-top js-repo-features-form" data-autosubmit="true" data-turbo="false"
+                action="/Hoangnt1705/aaaa/settings/discussion_activation" accept-charset="UTF-8" method="post"><input
+                    type="hidden" name="_method" value="put" autocomplete="off"><input type="hidden"
+                    name="authenticity_token"
+                    value="0xjEJThe961cWBUZLRZRe-Eq8SrjJl9aHFIu-Xh5-jke6Usy0grnH15osKhndgYxsSpy6RE3RCuKcHkGis7-fQ">
+                <div class="Box-row py-0">
+                    <div class="form-checkbox js-repo-option">
+                        <input type="hidden" name="has_discussions" value="0">
+                        <input type="checkbox" name="has_discussions" value="1"
+                            aria-describedby="discussions-feature-desc" id="discussions-feature">
+                        <label for="discussions-feature">Discussions</label>
+                        <span class="status-indicator ml-1 js-status-indicator">
+                        </span>
+                        <p id="discussions-feature-desc" class="note">
+                            Discussions is the space for your community to have conversations,
+                            ask questions and post answers without opening issues.
+                        </p>
+                    </div>
+                </div>
+            </form>
+            <div data-view-component="true" class="flash ml-5 mr-3 my-3">
+
+
+                <div class="d-flex flex-md-row flex-column flex-md-items-center flex-items-start">
+                    <div class="mb-md-0 mb-3">
+                        <h3 class="h5 mb-2">Get started with Discussions</h3>
+                        <p class="pr-6 mb-0">Engage your community by having discussions right in your repository, where
+                            your community already lives</p>
+                    </div>
+                    <div>
+                        <form data-turbo="false" class="" method="post"
+                            action="/Hoangnt1705/aaaa/discussions/welcome_templates"><input
+                                class="btnSetting btnNeumorphism-primary" type="submit"
+                                value="Set up discussions"><input type="hidden" name="authenticity_token"
+                                value="R4A4cfNWtAgRb4SxLDjrH30SO4b_GcbjP-xxsjt4fS2ERrLFOqrLudd6_TNPPDGUBTC9T6048vn9KRj65GyDlw">
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <form class="border-top js-repo-features-form" data-autosubmit="true" data-turbo="false"
+                action="/Hoangnt1705/aaaa/settings/projects" accept-charset="UTF-8" method="post"><input type="hidden"
+                    name="_method" value="put" autocomplete="off"><input type="hidden" name="authenticity_token"
+                    value="Ayho88Hx6ydxEkImTYZcG8MqZrvm0jM9CAAzUtZuB9L-aqqEu7tx97CRkKYLorfne2xcfFtGjjduF8txvjftDA">
+                <div class="Box-row py-0">
+                    <div class="form-checkbox js-repo-option">
+                        <input type="hidden" name="memex_projects_enabled" value="0">
+                        <input type="checkbox" name="memex_projects_enabled"
+                            aria-describedby="memex-projects-feature-desc" id="memex-projects-feature" value="1"
+                            checked="">
+                        <label for="memex-projects-feature">Projects</label>
+                        <span class="status-indicator v-align-top ml-1 js-status-indicator">
+                        </span>
+                        <p id="memex-projects-feature-desc" class="note">
+                            Projects on GitHub are created at the repository owner's level
+                            (organization or user) and can be linked to a repository's Projects tab.
+                            Projects are suitable for cross-repository development efforts such as
+                            feature work, complex product roadmaps or even Issue triage.
+                        </p>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+        <form data-turbo="false" action="/Hoangnt1705/demo3/settings/delete" accept-charset="UTF-8" method="post"><input
+                type="hidden" name="_method" value="delete" autocomplete="off"><input type="hidden"
+                name="authenticity_token"
+                value="Fk4NSGhN-mJ9OKRk5KkdDfM_YswvYLiccAmRDFYb5u7AAyjpwYFS1e2GM-F2zQ5ZDdNjQkbOwFVkkiY4SH5HGQ">
+            <p>
+                <input type="text" class="form-control input-block" autofocus="" required=""
+                    pattern="[hH][oO][aA][nN][gG][nN][tT]1705/[dD][eE][mM][oO]3"
+                    aria-label="Type in the name of the repository to confirm that you want to delete this repository."
+                    name="verify" autocomplete="off">
+            </p>
+            <button data-disable-invalid="" type="submit" data-view-component="true"
+                class="btnNeumorphism-danger btnNeumorphism btnNeumorphism-block" disabled=""> <span
+                    class="d-md-inline-block d-none">I understand the consequences,
+                    delete this repository</span>
+                <span class="d-inline-block d-md-none">Delete this repository</span>
+            </button>
+        </form>
+        <div class="flex-auto">
+            <strong>Delete this account</strong>
+
+            <p class="mb-0">
+                Once you delete a account, there is no going back. Please be certain.
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

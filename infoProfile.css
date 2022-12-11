@@ -19,8 +19,6 @@
     border: none;
     text-decoration: none;
     text-decoration: none !important;
-
-
 }
 
 html {
@@ -51,8 +49,10 @@ body.active {
 
 section {
     padding: 2rem;
+    padding-top: 0.6rem;
     margin-bottom: 10rem;
     transition: .2s linear;
+
 }
 
 .titleHoSoCuaToi {
@@ -92,7 +92,7 @@ section {
 }
 
 /* đây là css cảnh bảo toast xác nhận */
-#taskLoginComfirm {
+#taskComfirmFunc {
     visibility: hidden;
 }
 
@@ -100,7 +100,7 @@ section {
     visibility: hidden;
 }
 
-#taskLoginComfirm.show {
+#taskComfirmFunc.show {
     visibility: visible;
     /* Show the snackbar */
     /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
@@ -119,6 +119,9 @@ However, delay the fade out process for 2.5 seconds */
 }
 
 /* toast loading*/
+#toastLoading {
+    z-index: 99999999999;
+}
 
 .case__loading {
     position: absolute;
@@ -214,7 +217,7 @@ However, delay the fade out process for 2.5 seconds */
 .error {
     flex-direction: column;
     width: 440px;
-    height: 200px;
+    height: 220px;
     font-size: 1rem;
     padding: 30px;
     background: #fff;
@@ -251,6 +254,11 @@ However, delay the fade out process for 2.5 seconds */
 
 .fa-xmark,
 .fa-check {
+    color: green;
+    margin-right: 5px !important;
+}
+
+.fa-users-viewfinder {
     color: green;
     margin-right: 5px !important;
 }
@@ -292,7 +300,7 @@ However, delay the fade out process for 2.5 seconds */
 }
 
 /* // */
-.btn {
+.btnNeumorphism {
     margin-top: rem;
     display: inline-block;
     padding: 1rem 3.5rem;
@@ -304,7 +312,28 @@ However, delay the fade out process for 2.5 seconds */
     box-shadow: var(--box-shadow);
     text-align: end;
     margin-right: 2rem;
+}
 
+.btnLinkLogin {
+    margin-top: rem;
+    display: inline-block;
+    padding: 1rem 3.5rem;
+    border-radius: .5rem;
+    font-size: 1.7rem;
+    cursor: pointer;
+    background: none;
+    color: var(--black);
+    box-shadow: var(--box-shadow);
+    text-align: end;
+    margin-right: 2rem;
+}
+
+.btnNeumorphism:hover {
+    box-shadow: var(--box-shadow-inset);
+}
+
+.btnLinkLogin:hover {
+    background: #15824B;
 }
 
 .inputChangeProfile {
@@ -338,16 +367,23 @@ However, delay the fade out process for 2.5 seconds */
     font-size: 13px;
 }
 
-.changePassword {
+.changePassword,
+.changeEmail {
     color: gray;
     text-decoration: underline;
     margin-left: 10px;
     font-size: 13px;
 }
 
-.btn:hover {
-    box-shadow: var(--box-shadow-inset);
+.changePassword:hover {
+    color: #006341;
 }
+
+.changeEmail:hover {
+    color: #006341;
+}
+
+
 
 .btnGender {
     display: inline-block;
@@ -394,6 +430,7 @@ However, delay the fade out process for 2.5 seconds */
     text-align: center;
     box-shadow: 20px 20px 60px #bebebe,
         -20px -20px 60px #ffffff;
+    margin-bottom: 30px;
 }
 
 .header .user img {
@@ -441,12 +478,13 @@ However, delay the fade out process for 2.5 seconds */
 
 }
 
-.aaaaa {
+.beingClickMyAccount,
+.beingClickSetting {
     box-shadow: var(--box-shadow-inset) !important;
     color: var(--green) !important;
 }
 
-#menu-btn {
+#menu-btnNeumorphism {
     position: fixed;
     top: 1.5rem;
     left: 2rem;
@@ -463,7 +501,7 @@ However, delay the fade out process for 2.5 seconds */
     display: none;
 }
 
-#menu-btn:hover {
+#menu-btnNeumorphism:hover {
     color: var(--green);
     box-shadow: var(--box-shadow-inset);
 }
@@ -506,10 +544,11 @@ However, delay the fade out process for 2.5 seconds */
 }
 
 .home .content h3 {
-    font-size: 7rem;
-    color: var(--black);
+    font-size: 2rem;
+    color: rgba(0, 0, 0, .2);
     line-height: 1.1;
     text-transform: uppercase;
+    font-weight: 500;
 }
 
 .home .content p {
@@ -578,12 +617,14 @@ However, delay the fade out process for 2.5 seconds */
     margin-right: 58rem;
     color: #f00;
 }
+
 #errorInputChangePassword {
     padding: 10px 10px 180px 10px;
     margin-right: 58rem;
     color: #f00;
     position: absolute;
 }
+
 #errorInputComfirmChangePassword {
     padding: 20px 10px 10px 10px;
     margin-right: 49rem;
@@ -591,23 +632,383 @@ However, delay the fade out process for 2.5 seconds */
     position: absolute;
 }
 
+#taskChangeImage {
+    color: #017143;
+    position: absolute;
+    font-size: 25px;
+    bottom: 53%;
+    left: 11.5%;
+}
 
+.fa-paperclip {
+    color: #017143;
+    padding-right: 5px !important;
+}
 
+#clickCameraAndAttachedWithChange {
+    width: 100px;
+    height: 50px;
+    border: 1pt solid #017143;
+    border-radius: 4px;
+    background-color: #017143;
+    margin-right: 40px;
+}
 
+#clickAttachedWithChange {
+    width: 100px;
+    height: 50px;
+    border: 1pt solid #017143;
+    border-radius: 4px;
+    background-color: #017143;
+}
 
+#customclickChangeImage {
+    display: flex;
+    /* justify-content: center; */
+}
 
+.clickCameraAndAttachedWithChange,
+.clickAttachedWithChange {
+    top: 10rem;
+    width: max-content;
+    font-size: 13px;
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);
+    padding: 1rem;
+}
 
+.fa-camera,
+.fa-image {
+    color: #fff !important;
+    font-size: 16px;
+}
 
+.file-upload-image {
+    background-color: #ffffff;
+    width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
 
+.file-upload-btnNeumorphism {
+    width: 100%;
+    margin: 0;
+    color: #fff;
+    background: #1FB264;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    border-bottom: 4px solid #15824B;
+    transition: all .2s ease;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 700;
+}
 
+.file-upload-btnNeumorphism:hover {
+    background: #1AA059;
+    color: #ffffff;
+    transition: all .2s ease;
+    cursor: pointer;
+}
 
+.file-upload-btnNeumorphism:active {
+    border: 0;
+    transition: all .2s ease;
+}
 
+.file-upload-content {
+    display: none;
+    text-align: center;
+    padding-top: 15px;
+}
 
+.file-upload-input {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    opacity: 0;
+    cursor: pointer;
+}
 
+.image-upload-wrap {
+    margin-top: 20px;
+    border: 4px dashed #1FB264;
+    position: relative;
+    width: 100%;
+    height: 250px;
+    visibility: hidden;
+}
 
+.image-dropping,
+.image-upload-wrap:hover {
+    background-color: #1FB264;
+    border: 4px dashed #ffffff;
+}
+
+.image-title-wrap {
+    padding: 0 15px 15px 15px;
+    color: #222;
+    position: absolute;
+    display: flex;
+}
+
+.drag-text {
+    text-align: center;
+}
+
+.drag-text h3 {
+    font-weight: 100;
+    text-transform: uppercase;
+    color: #15824B;
+    padding: 60px 0;
+}
+
+.file-upload-image {
+    max-height: 200px;
+    max-width: 200px;
+    margin: auto;
+    padding: 20px;
+}
+
+.remove-image {
+    width: 130px;
+    margin: 0px;
+    color: rgb(255, 255, 255);
+    background: rgb(205, 69, 53);
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-image: initial;
+    padding: 10px;
+    border-radius: 4px;
+    border-bottom: 4px solid rgb(176, 40, 24);
+    transition: all 0.2s ease 0s;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 11px !important;
+    position: absolute;
+    margin-top: 45px;
+
+}
+
+.saveImage {
+    width: 130px;
+    margin: 0px;
+    color: rgb(255, 255, 255);
+    background: #017143;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-image: initial;
+    padding: 10px;
+    border-radius: 4px;
+    border-bottom: 4px solid #00663c;
+    transition: all 0.2s ease 0s;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 11px !important;
+    position: absolute;
+    margin-top: 45px;
+    margin-left: 200px;
+}
+
+.remove-image:hover {
+    background: #c13b2a;
+    color: #ffffff;
+    transition: all .2s ease;
+    cursor: pointer;
+}
+
+.remove-image:active {
+    border: 0;
+    transition: all .2s ease;
+}
+
+.saveImage:hover {
+    background: #01683d;
+    color: #ffffff;
+    transition: all .2s ease;
+    cursor: pointer;
+}
+
+.saveImage:active {
+    border: 0;
+    transition: all .2s ease;
+}
+
+.toastAfterClickChangeImage {
+    opacity: 0;
+    position: absolute;
+    width: 385px;
+    height: 100px;
+    border: 2pt solid #ddd;
+    background: #ddd;
+    text-align: center;
+    justify-content: space-between;
+    line-height: 2cm;
+    font-size: 17px;
+    font-weight: 400;
+    color: #017143;
+    margin-top: 100px;
+    animation: fadeInToastAfterClickChangeImage 2s, fadeOutToastAfterClickChangeImage 2s 2s;
+}
+
+.fa-wand-magic-sparkles {
+    color: green;
+    font-size: 25px;
+    padding-right: 3px;
+}
+
+;
+
+#imageAccount {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-size: 100% 100%;
+}
+
+#wrapSetting {
+    max-width: 100%;
+    width: 950px;
+    justify-content: center;
+    margin-left: 100px;
+    margin-top: 20px;
+    text-align: justify;
+}
+
+input[type='checkbox']:checked:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 5px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: #017143;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+}
+
+.btnSetting {
+    padding: 5px;
+    border-radius: 5px;
+    background: #15824B;
+}
+
+.pr-6 {
+    padding-bottom: 5px;
+}
+
+.taskDelete {
+    margin-top: 15px;
+    margin-bottom: 30px;
+    padding: 10px 10px 10px 10px;
+    border: 0.5pt solid #32393d;
+    margin-bottom: 200px;
+}
+
+.warningDelete {
+    background-color: #f3e16b;
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 2px;
+    width: max-content;
+    /* display: inline-block; */
+}
+
+.btnDelete {
+    text-align: center;
+    margin-bottom: 20px;
+    display: inline-block;
+    padding: 1rem 3.5rem;
+    border-radius: .5rem;
+    font-size: 1.7rem;
+    cursor: pointer;
+    background: none;
+    color: var(--black);
+    box-shadow: var(--box-shadow);
+}
+
+.backgroundCameraChange {
+    position: relative;
+    width: 491px;
+    height: 640px;
+    border-radius: 20px;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    margin-top: -60px;
+    margin-left: 130px;
+}
+
+.backgroundCameraChange::before {
+    content: '';
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    background-image: conic-gradient(transparent, transparent, transparent, #00ffad);
+    animation: rotateBackgroundImage 5s linear infinite;
+}
+
+.backgroundCameraChange::after {
+    content: '';
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    background-image: conic-gradient(transparent, transparent, transparent, #00ccff);
+    animation: rotateBackgroundImage 5s linear infinite;
+    animation-delay: -3s;
+
+}
+
+.backgroundCameraChange .InmoreBackgroundImage {
+    position: absolute;
+    inset: 5px;
+    border-radius: 16px;
+    background-color: #000;
+    z-index: 2;
+}
+
+.snapCamera {
+    position: absolute;
+    border-radius: 360px;
+    margin-top: -80px;
+    margin-left: 20px;
+    z-index: 2;
+    margin-left: 337px;
+    background: #fff;
+    width: 50px;
+    height: 69px;
+
+}
+#video{
+    margin-top: -15px;
+    position: relative;
+    margin-left: 1px;
+}
+.fa-circle-notch{
+    font-size: 25px;
+    margin-left: -12px;
+}
+#canvasChangeImage{
+    position: absolute;
+    margin-top: -80px;
+    z-index: 3;
+    margin-left: 180px;
+    border-radius: 5px;
+    cursor: pointer;
+    background: rgb(109, 109, 109);
+}
 
 /* media queries  */
-
 @media (max-width:991px) {
 
     html {
@@ -627,7 +1028,7 @@ However, delay the fade out process for 2.5 seconds */
         transition: .4s linear;
     }
 
-    #menu-btn {
+    #menu-btnNeumorphism {
         display: initial;
     }
 
@@ -668,6 +1069,26 @@ However, delay the fade out process for 2.5 seconds */
     to {
         bottom: 30px;
         opacity: 1;
+    }
+}
+
+@keyframes fadeInToastAfterClickChangeImage {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOutToastAfterClickChangeImage {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
     }
 }
 
@@ -718,5 +1139,15 @@ However, delay the fade out process for 2.5 seconds */
     100% {
         stroke-dasharray: 89, 200;
         stroke-dashoffset: -124px;
+    }
+}
+
+@keyframes rotateBackgroundImage {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
     }
 }

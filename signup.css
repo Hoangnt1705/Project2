@@ -1,16 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
 
-:root{
+:root {
     --success-color: #593e2c;
     --error-color: #e74c3c;
 }
-*{
- padding: 0;
- margin: 0;
- box-sizing: border-box;
-} 
 
-body{
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
     height: 100vh;
     overflow: hidden;
     font-family: 'Poppins';
@@ -20,7 +21,7 @@ body{
     background: #26734d;
 }
 
-.container{
+.container {
     width: 400px;
     border: none;
     border-radius: 10px;
@@ -28,26 +29,28 @@ body{
     padding: 40px;
 }
 
-.container h1{
+.container h1 {
     text-align: center;
 }
 
-.form-control{
+.form-control {
     width: 100%;
     position: relative;
     margin-top: 30px;
 }
-.form-control input{
+
+.form-control input {
     width: 100%;
     height: 40px;
-    font-size:  16px;
+    font-size: 16px;
     border: none;
     outline: none;
     border-bottom: 2px solid #adadad;
-    
-    
+
+
 }
-.form-control #toggle1{
+
+.form-control #toggle1 {
     position: absolute;
     top: 0;
     right: -25px;
@@ -57,21 +60,22 @@ body{
     font-size: 1.2em;
     cursor: pointer;
     user-select: none;
-    color:#593e2c;
+    color: #593e2c;
     font-weight: 600;
     padding-right: 30px;
 
 }
 
-.form-control #toggle1::before{
+.form-control #toggle1::before {
     content: '\f06e';
     font-family: fontAwesome;
 }
-#toggle1:hover{
-    color:#804000;
+
+#toggle1:hover {
+    color: #804000;
 }
 
-.form-control #toggle2{
+.form-control #toggle2 {
     position: absolute;
     top: 0;
     right: -25px;
@@ -81,29 +85,31 @@ body{
     font-size: 1.2em;
     cursor: pointer;
     user-select: none;
-    color:#593e2c;
+    color: #593e2c;
     font-weight: 600;
     padding-right: 30px;
 
 
 }
 
-.form-control #toggle2::before{
+.form-control #toggle2::before {
     content: '\f06e';
     font-family: fontAwesome;
 }
-#toggle2:hover{
-    color:#804000;
+
+#toggle2:hover {
+    color: #804000;
 }
 
-.form-control #toggle1.hide::before{
-        content: '\f070';
-}
-.form-control #toggle2.hide::before{
+.form-control #toggle1.hide::before {
     content: '\f070';
 }
 
-.form-control span{
+.form-control #toggle2.hide::before {
+    content: '\f070';
+}
+
+.form-control span {
     position: absolute;
     border-bottom: 3px solid var(--success-color);
     left: 0;
@@ -111,17 +117,20 @@ body{
     width: 0%;
     transition: 0.3s;
 }
-.form-control input:focus ~ span{
+
+.form-control input:focus~span {
     width: 100%;
 }
-.form-control.error small{
+
+.form-control.error small {
     color: var(--error-color);
 }
 
-.form-control.error input{
+.form-control.error input {
     border-bottom: 2px solid var(--error-color);
 }
-.btn-submit{
+
+.btnNeumorphism-submit {
     width: 100%;
     height: 50px;
     border-radius: 25px;
@@ -136,21 +145,25 @@ body{
     cursor: pointer;
 
 }
-.btn-submit:hover{
+
+.btnNeumorphism-submit:hover {
     background: #804000;
 }
-.signup-link{
+
+.signup-link {
     text-align: center;
 }
-.signup-link a{
+
+.signup-link a {
     color: var(--success-color);
     cursor: pointer;
 }
-.signup-link a:hover{
+
+.signup-link a:hover {
     text-decoration: underline;
 }
 
-.signup{
+.signup {
     color: #593e2c;
     display: flex;
 }

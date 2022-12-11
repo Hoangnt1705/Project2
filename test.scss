@@ -1,0 +1,109 @@
+.Layout.Layout--sidebarPosition-start .Layout-main {
+    grid-column: 2/span 2;
+}
+
+.Layout-main .Layout-main-centered-md {
+    max-width: calc(768px + var(--Layout-sidebar-width) + var(--Layout-gutter));
+}
+
+.container-md {
+    max-width: 768px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.Layout-main .Layout-main-centered-md>.container-md,
+.Layout-main .Layout-main-centered-md>.container-lg,
+.Layout-main .Layout-main-centered-md>.container-xl,
+.Layout-main .Layout-main-centered-lg>.container-md,
+.Layout-main .Layout-main-centered-lg>.container-lg,
+.Layout-main .Layout-main-centered-lg>.container-xl,
+.Layout-main .Layout-main-centered-xl>.container-md,
+.Layout-main .Layout-main-centered-xl>.container-lg,
+.Layout-main .Layout-main-centered-xl>.container-xl {
+    margin-left: 0;
+}
+
+.Layout-main .Layout-main-centered-md,
+.Layout-main .Layout-main-centered-lg,
+.Layout-main .Layout-main-centered-xl {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+.Subhead {
+    border-bottom: var(--primer-borderWidth-thin, 1px) solid var(--color-border-muted);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    margin-bottom: var(--primer-stack-gap-normal, 16px);
+    padding-bottom: var(--primer-stack-padding-condensed, 8px);
+}
+
+.Subhead-heading {
+    flex: 1 1 auto;
+    font-size: 24px;
+    font-weight: var(--base-text-weight-normal, 400);
+    order: 0;
+}
+
+.d-flex {
+    display: flex !important;
+}
+
+input,
+select,
+textarea,
+button {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+.form-control,
+.form-select {
+    padding: 5px 12px;
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--color-fg-default);
+    vertical-align: middle;
+    background-color: var(--color-canvas-default);
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    border: 1px solid var(--color-border-default);
+    border-radius: 6px;
+    box-shadow: var(--color-primer-shadow-inset);
+    transition: 80ms cubic-bezier(0.33, 1, 0.68, 1);
+    transition-property: color, background-color, box-shadow, border-color;
+}
+
+[hidden][hidden] {
+    display: none !important;
+}
+
+.form-control,
+.form-select {
+    padding: 5px 12px;
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--color-fg-default);
+    vertical-align: middle;
+    background-color: var(--color-canvas-default);
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    border: 1px solid var(--color-border-default);
+    border-radius: 6px;
+    box-shadow: var(--color-primer-shadow-inset);
+    transition: 80ms cubic-bezier(0.33, 1, 0.68, 1);
+    transition-property: color, background-color, box-shadow, border-color;
+}
+
+.btnNeumorphism {
+    color: var(--color-btnNeumorphism-text);
+    background-color: var(--color-btnNeumorphism-bg);
+    border-color: var(--color-btnNeumorphism-border);
+    box-shadow: var(--color-btnNeumorphism-shadow), var(--color-btnNeumorphism-inset-shadow);
+    transition: 80ms cubic-bezier(0.33, 1, 0.68, 1);
+    transition-property: color, background-color, box-shadow, border-color;
+}

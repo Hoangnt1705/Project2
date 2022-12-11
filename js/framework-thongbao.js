@@ -81,3 +81,27 @@ let showChangePassword = (text) => {
         duration: 3000
     })
 }
+let showRegisterSuccess = (text) => {
+    toast({
+    title: 'Thành công',
+    message: text,
+    type: 'success',
+    duration: 3000
+    });
+}
+let showRegisterFail = (text) => {
+    toast({
+        title: 'Thất bại',
+        message: text,
+        type: 'warning',
+        duration: 3000
+    })
+}
+let showLoginFail = (text) => {
+    toast({
+        title: 'Thất bại',
+        message: text,
+        type: 'warning',
+        duration: 3000
+    })
+}

@@ -96,6 +96,10 @@
     margin-left: 0.3125rem;
 }
 
+.carousel-indicators{
+    z-index: 1 !important;
+}
+
 
 .xZ4bbg {
     display: flex;
@@ -1147,6 +1151,29 @@ svg:not(:root) {
     border-color: #ddd;
 }
 
+
+
+.pagination {
+    display: inline-block;
+  }
+  
+  .pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+  }
+  
+  .pagination a.active {
+    background-color: #006341;
+    color: white;
+    border-radius: 5px;
+  }
+  
+  .pagination a:hover:not(.active) {
+    background-color: #ddd;
+    border-radius: 5px;
+  }
 /* .ant-image-mask:hover{
     opacity: 1;
     overflow: hidden;
